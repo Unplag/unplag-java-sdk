@@ -1,8 +1,9 @@
 package com.unplag.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public enum UType {
 
 	MY_LIBRARY("my_library"),
