@@ -3,6 +3,7 @@ version '1.0'
 
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -51,6 +52,19 @@ task itest(type: Test) {
 
     testLogging {
         events "passed", "skipped", "failed"
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            url "./mvn-repo"
+        }
+    }
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
     }
 }
 
